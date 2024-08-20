@@ -48,8 +48,6 @@ public class AiApplication {
     public static INDArray preprocessImage(String imagePath) throws IOException {
         NativeImageLoader loader = new NativeImageLoader(128, 128, 3);
         INDArray image = loader.asMatrix(new File(imagePath));
-//        DataNormalization scaler = new ImagePreProcessingScaler(0, 1);
-//        scaler.transform(image);
         image.divi(255);
 
         return image;
@@ -66,7 +64,6 @@ public class AiApplication {
                     INDArray image = preprocessImage(imagePath);
 //                    System.out.println("Process done");
 
-//                    image = image.reshape(1,128,128,3);
                     image.permutei(0,2,3,1);
 //                    System.out.println("Image shape" + image.shapeInfoToString());
                     INDArray output = model.output(image);
@@ -88,8 +85,6 @@ public class AiApplication {
     }
 
     public static void main(String[] args) throws IOException, UnsupportedKerasConfigurationException, InvalidKerasConfigurationException {
-//        String pdfFolder = "C:\\Users\\meta2\\OneDrive\\Desktop\\NETbayJava\\ai\\ai\\src\\main\\java\\com\\example\\ai\\data_for_test\\pdf";
-//        String outputFolder = "C:\\Users\\meta2\\OneDrive\\Desktop\\NETbayJava\\ai\\ai\\src\\main\\java\\com\\example\\ai\\data_for_test\\converted_img";
 
         System.out.println(args[0]);
         System.out.println(args[1]);
@@ -100,7 +95,7 @@ public class AiApplication {
 
         // Load the model
         File modelFile = new File(args[2]);
-//        ComputationGraph model = ModelSerializer.restoreComputationGraph(modelFile);
+
         MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(String.valueOf(modelFile), false);
         classifyPdfsInFolder(pdfFolder, model, outputFolder);
     }
