@@ -1,5 +1,4 @@
 # Document Classifier in Java
-**Content**
 
 
 ## เกี่ยวกับ Repos นี้
