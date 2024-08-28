@@ -60,7 +60,7 @@ Parameter:
 - String imagePath : path ของรูปภาพ .jpg เดี่ยวๆที่จะนำไปแปลงใส่ array ก่อนจะนำเข้าโมเดล
 
 
-#### image.permutei(int... var1);
+#### image.permutei(int... var1)
   - ทำการจัดเรียงลำดับ array ให้ตรงตามที่โมเดลต้องการด้วยฟังก์ชั่น image.permutei()
 
 Parameter :
